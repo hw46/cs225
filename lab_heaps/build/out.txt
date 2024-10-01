@@ -1,0 +1,130 @@
+15
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Testing Constructor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~ Original array: ~
+[ 2 12 3 6 5 9 14 11 8 1 7 10 0 4 13 ]
+
+~ After buildheap: ~
+(empty)
+
+[ ]
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Testing push:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+After push(13)
+(empty)
+
+[ ]
+
+
+After push(9)
+(empty)
+
+[ ]
+
+
+After push(4)
+(empty)
+
+[ ]
+
+
+After push(10)
+(empty)
+
+[ ]
+
+
+After push(11)
+(empty)
+
+[ ]
+
+
+After push(1)
+(empty)
+
+[ ]
+
+
+After push(7)
+(empty)
+
+[ ]
+
+
+After push(12)
+(empty)
+
+[ ]
+
+
+After push(14)
+(empty)
+
+[ ]
+
+
+After push(5)
+(empty)
+
+[ ]
+
+
+After push(3)
+(empty)
+
+[ ]
+
+
+After push(6)
+(empty)
+
+[ ]
+
+
+After push(8)
+(empty)
+
+[ ]
+
+
+After push(0)
+(empty)
+
+[ ]
+
+
+After push(2)
+(empty)
+
+[ ]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Testing pop (requires constructor to be working):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Original Heap:
+(empty)
+
+[ ]
+
+Incorrect: Heap should not be empty yet
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Testing updateElem (requires constructor to be working):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Original Heap:
+(empty)
+
+[ ]
+
+Heap after updating index at 2 and 4:
+(empty)
+
+[ ]
+

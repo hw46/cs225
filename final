@@ -1,0 +1,129 @@
+bool Graph::isBipartite(){
+    vector<int> color(vertex,-1);
+    for(int i=0; i<vertex; i++){
+        queue<int> q;
+        q.push(i);
+        color[i]=0;
+        while(!q.empty()){
+            int v=q.front();
+            q.pop();
+            for(int k:adj[v]){
+                if(color[k]==-1){
+                    color[k]=1-color[v];
+                    q.push(k);
+                }
+                else if(color[k]==color[v]){
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+int Graph::connectedComponents(){
+    vector<bool> visited(vertex, false);
+    int count=0;
+    for(int i=0; i<vertex; i++){
+        if(!visited[i]){
+            DFS(i,visited);
+            count++;
+        }
+    }
+    return count;
+}
+
+void Graph::DFS(int v, std::vector<bool> &visited){
+    visited[v]=true;
+    for(int i:adj[v]){
+        if(!visited[i]){
+            DFS(i,visited);
+        }
+    }
+}
+
+vector<Vertex> shortestPath(Graph& g, Vertex start, Vertex destination){
+    vector<Vertex> vertices = g.getVertices();
+    vector<Edge> edges = g.getEdges();
+    map<Vertex, int> dist;
+    for (Vertex& v: vertices) {
+        dist[v] = INT_MAX;
+    }
+    map<Vertex, Vertex> pred;
+    map<Vertex, bool> unvisited;
+    priority_queue<pair<int, Vertex>, vector<pair<int, Vertex>, greater<pair<int, Vertex>> pq;
+    dist[start] = 0;
+    pq.push({0, start});
+    while (!pq.empty()){
+        int u = pq.top().first;
+        pq.pop();
+        unvisited[u] = false;
+        vector<Vertex> neighbors = g.getAdjacent(u);
+        for (Vertex& v: neighbors){
+            Edge edge = g.getEdge(u, v);
+            int weight = edge->weight;
+            if (dist[u] + weight < dist[v]){
+                dist[v] = dist[u] + weight;
+                pred[v] = vertices[u];
+                pq.push({dist[v], v});
+            }
+        }
+    }
+    if (dist[destination] == INT_MAX) {
+        return {};
+    }
+    vector<Vertex> path;
+    for (Vertex v = destination; v != start; v = pred[v]) {
+        path.push_back(v);
+    }
+    path.push_back(start);
+    reverse(path.begin(), path.end());
+    return path;
+}
+
+int countOccurrences111(TreeNode* node, int target) {
+    if(!node){
+        return 0;
+    }
+    int count=0;
+    if(node->data==target){
+        count++;
+    }
+    return count+countOccurrences111(node->left,target)+countOccurrences111(node->right,target);
+}
+
+bool searchInBinaryTree(TreeNode* root, int target) {
+    if(!root){
+        return false;
+    }
+    if(root->data==target){
+        return true;
+    }
+    return searchInBinaryTree(root->left, target) || searchInBinaryTree(root->right, target);
+}
+
+void makeLeftFullTree(Node* root) {
+    if(!root){
+        return nullptr;
+    }
+    makeLeftFullTree(root->left);
+    makeLeftFullTree(root->right);
+
+    if(!root->left && root->right){
+        root->left=root->right;
+        root->right=nullptr;
+    }
+}
+
+Node* exam(int n){
+    Node* root=Node(0);
+    int i=0;
+    Node* curr=root;
+    while((2*i+1)!=n){
+        curr->left=Node(2*i+2);
+        curr->right=Node(2*i+3);
+        curr=curr->left;
+        i++;
+    }
+    return root;
+}
